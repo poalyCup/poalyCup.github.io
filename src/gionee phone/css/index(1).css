@@ -1,0 +1,251 @@
+﻿/*index样式*/
+
+
+/*  轮播图  */
+.banner{
+    padding-top: 103px;
+    width: 100%;
+    height: 640px;
+}
+
+/*   跑马图  */
+.banner-main-img{
+    display: block;
+    width: 100%;
+    height: 640px;
+    background-position: center;
+    /* 背景图写到css里不能直接被后台修改
+        写到标签style里为宜
+     */
+}
+.banner-main li{
+    position: absolute;
+    width: 100%;
+    height: 640px;
+    left: 0;
+    top: 0;
+}
+.banner-main .current{
+    z-index: 1;
+}
+
+/*   左右箭头   */
+.icon-arrow-left,.icon-arrow-right{
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    cursor: pointer;
+    z-index: 2;
+}
+.icon-arrow-left{
+    left: 80px;
+}
+.icon-arrow-right{
+    right: 80px;
+}
+.banner-arrow-hover .icon-arrow-left,.banner-arrow-hover .icon-arrow-right{
+    background-color: #ccc;
+    opacity: 0.2;
+}
+
+
+/*    指示器模块    */
+.banner-key{
+    position: absolute;
+    z-index: 3;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -64px;
+}
+.banner-key li{
+    width: 50px;
+    height: 4px;
+    background-color: #fff;
+    margin: 0 7px;
+    cursor: pointer;
+    float: left;
+}
+.banner-key .current{
+    background-color: #ff6a00;
+}
+
+/*    公共样式  */
+/*       product-title      */
+.pro-title{
+    padding-left: 1px;
+    height: 125px;
+    font-size:30px;
+    text-align: center;
+    line-height: 125px;
+}
+/*    about-more  */
+.about-more{
+    font-size: 15px;
+    position: absolute;
+    right: 0;
+    top: 36px;
+}
+.about-more a{
+    color: #000;
+}
+.about-more a:hover{
+    color: #ef4222;
+}
+/*    人民币符号   */
+.rmb{
+    font-size:18px;
+}
+
+/*   、、、、、、、以上为公共样式、、、、、、、  */
+
+
+/*  明星产品  */
+.star-product li{
+    float: left;
+    margin-right: 8px;
+    margin-bottom: 60px;
+    cursor: pointer;
+}
+
+.back-color-box{
+    height: 1812px;
+    width: 100%;
+    background-color: #e5e5e5;
+}
+
+/*   热卖推荐  */
+.hot-salse{
+    background-color: #e5e5e5;
+}
+.hot-conten-left{
+    transition: all 0.5s;
+    position: absolute;
+    width: 305px;
+    height: 785px;
+    float: left;
+}
+.hot-conten-left-hover{
+    box-shadow: 0px 5px 20px #888888;
+    transform:translate(0,-3px) ;
+}
+
+.hot-conten-right{
+    width: 890px;
+    height: 785px;
+    float: right;
+}
+.hot-conten-right li{
+    text-align: center;
+    display: inline-block;
+    width: 290px;
+    height: 390px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+.hot-conten-right img{
+    height: 240px;
+    width: auto;
+    margin-top: 22px;
+    margin-bottom: 18px;
+}
+.pro-pic-box{
+    height: 280px;
+}
+.after,.before{
+    width: 120px;
+    height: 240px;
+    position: absolute;
+    left: 85px;
+    transition: all 0.4s;
+}
+.hot-conten-right li:hover .after{
+    transform: translate(-40px,0);
+}
+.hot-conten-right li:hover .before{
+    transform: translate(40px,0);
+}
+
+
+
+
+/* 、、、、 以上 热卖推荐、、、、  */
+
+
+/*  产品名样式  */
+.hot-conten-right h2,
+.good-conten h3
+{
+    color: #000;
+}
+/*  产品说明样式  */
+.hot-conten-right .decs{
+    color: #9e9e9e;
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+/*  产品价格样式  */
+.hot-conten-right .price{
+    color: #ef4222;
+    font-size:25px;
+}
+
+/*   精美配件  */
+.good-conten li {
+    position: relative;
+    background-color: #fff;
+    float: left;
+    display: block;
+    width: 386px;
+    height: 344px;
+    margin-right: 12px;
+    margin-bottom: 16px;
+    transition: all 0.4s;
+}
+
+.good-conten a{
+    display: inline-block;
+    position: relative;
+    width: 386px;
+    height: 344px;
+}
+.good-conten-txt{
+    height: 68px;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    text-align: center;
+    bottom: 26px
+}
+.good-conten .decs{
+    color: #9E9E9E;
+    padding-top: 10px;
+    font-size: 14px;
+}
+.good-conten .price{
+    color: #f06261;
+    padding-top: 8px;
+    font-size: 24px;
+}
+
+/*   精美配件互动属性  */
+.good-conten-onhover{
+    box-shadow: 0px 5px 15px #888888;
+    transform: translate(0,-3px);
+}
+
+
+
+/*  、、、、以上为  精美配件互动属性、、、、  */
+
+/*  品牌动态  */
+.brand-dynamics{
+    height: 518px;
+}
+.brand-conten img{
+    margin-right: 10px;
+    margin-bottom: 12px;
+    width: 386px;
+    height: 377px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,463 @@
+/*公共样式*/
+/*  顶头样式  */
+*{
+    font-size: 12px;
+    font-family: "微软雅黑";
+}
+a{
+    color: #777;
+    text-decoration: none;
+}
+a:hover{
+    color: #ef4222;
+}
+/* 热点*/
+.hot{
+    color: #ef4222 !important;
+}
+/* 去掉右间距 */
+.nomgr{
+    margin-right:0 !important;
+}
+
+/*    版心   */
+.warp{
+    width: 1200px;
+    margin: 0 auto;
+}
+.logo,.icon-cart,.search-sub,.footer-up-icon01,.footer-up-icon02,.footer-up-icon03,.footer-up-icon04,
+.icon-sinawibo,.icon-tencentwibo,.icon-qzone,.icon-add{
+    background-image: url(../img/spirite.png);
+}
+.position-relative{
+    position: relative;
+}
+.float-left{
+    float: left;
+}
+/*  清楚浮动带来的影响  */
+.clearfloat:after{
+    display:block;
+    clear:both;
+    content:"";
+}
+/*   ||||||以上为公共样式|||||||  */
+
+
+/*  页头样式   */
+.header{
+    top: 0;
+    z-index: 30;
+    background-color: #fff;
+    position: fixed;
+    height:103px;
+    width: 100%;
+    box-shadow: 0 3px 3px #9E9E9E;
+}
+.logo{
+    height: 42px;
+    width: 199px;
+    float: left;
+    margin: auto 0;
+    background-position: 0 -8px;
+    margin-top: 33px;
+}
+.header-right{
+    width: 824px;
+    height: 71px;
+    float: right;
+    margin-top:12px;;
+}
+.header-login{
+    font-size: 11px;
+    margin-top: 12px;
+    margin-right: 3px;
+    text-align: right;
+    vertical-align: middle;
+}
+.icon-cart{
+    width: 15px;
+    height: 14px;
+    background-position: -216px -5px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.nav{
+    float: left;
+    margin-top: 25px;
+}
+.nav li{
+    float: left;
+    margin-right: 56px;
+}
+.nav li a{
+    color: black;
+}
+.nav li a:hover{
+    color: #ef4222;
+}
+/*   手机菜单属性   */
+.mar-left{
+    margin-left: 160px;
+}
+#phoneMune{
+    padding-bottom: 23px;
+}
+.mune-box{
+    text-align: center;
+    left: 0;
+    position: fixed;
+    top: 103px;
+    height: 250px;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.98;
+    z-index: 29;
+}
+.mune-box ul{
+    margin-right: 0;
+    float: left;
+    width: 200px;
+    display: inline-block;
+}
+.mune-box li{
+    cursor: pointer;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
+    color:#777777;
+    width: 200px;
+    font-size: 16px;
+    display: inline-block;
+}
+.mune-title{
+    color: #333333;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    display: inline-block;
+}
+.mune-box li a{
+    color:#777777;
+}
+.mune-box li a:hover{
+    color: #ff6a00;
+}
+
+
+
+/*  以上为手机菜单相关属性  */
+
+
+.search{
+    float: right;
+    margin-top: 20px;
+    margin-right: 3px;
+    border: 1px solid #ddd;
+}
+.search-txt{
+    color: black;
+    float: left;
+    margin: 0;
+    border: 0 none;
+    padding: 0;
+    width: 140px;
+    height: 28px;
+}
+.search-sub{
+    float: right;
+    width: 28px;
+    height: 28px;
+    background-position: -233px 0;
+    background-color: #fff;
+    border: 0 none;
+    padding: 0;
+}
+
+
+/*  页脚样式  */
+
+/*  页脚头部  */
+.footer-up{
+    height: 125px;
+    font-size: 16px;
+    line-height:22px;
+}
+.footer-up li{
+    float: left;
+    width: 296px;
+    margin-top: 42px;
+}
+.footer-up li span{
+    float: left;
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left:3px;
+}
+.footer-up-icon01{
+    background-position: 0 -61px;
+}
+.footer-up-icon02{
+    background-position: -46px -61px;
+}
+.footer-up-icon03{
+    background-position: -92px -61px;
+}
+.footer-up-icon04{
+    background-position: -138px -61px;
+}
+
+/*  页脚中部  */
+.footer-center{
+    border-top: 1px gainsboro solid;
+    height: 290px;
+}
+.footer-center dl{
+    float: left;
+    width: 218px;
+    margin-top: 39px;
+}
+.footer-center dt{
+    margin-bottom: 19px;
+    font-sise: 16px;
+    color: #777777;
+}
+.footer-center dd{
+    margin-bottom:22px;
+    font-size: 13px;
+}
+.icon-qzone,.icon-tencentwibo,.icon-sinawibo{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.icon-sinawibo{
+    background-position: -378px -66px;
+}
+.icon-tencentwibo{
+    background-position: -404px -66px;
+}
+.icon-qzone{
+    background-position: -428px -66px ;
+}
+a:hover .icon-sinawibo{
+     background-position: -378px -91px;
+ }
+a:hover .icon-tencentwibo{
+    background-position: -404px -91px;
+}
+a:hover .icon-qzone{
+    background-position: -428px -91px;
+}
+
+/*  二维码样式  */
+.qrcode{
+    position: absolute;
+    right: 0px;
+    top: 23px;
+}
+.qrcode-img{
+    width: 98px;
+    height: 98px;
+    border: 3px solid #ccc;
+}
+.qrcode-txt{
+    text-align: center;
+    color: #999;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+/*  页脚底部  */
+.footer-down{
+    line-height: 30px;
+    font-size: 11px;
+    color: #999999;
+    background-color: #333;
+    height: 158px;
+}
+.footer-down a{
+     color: #999999;
+ }
+.footer-down a:hover{
+    color: #fff;
+}
+.footer-down01{
+    padding-top:26px;
+}
+/*      集团下属公司     */
+.icon-arrow{
+    transition: all 0.4s;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    display: block;
+    border-top: 4px solid #999;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    position: absolute;
+    right:1px;
+    top:9px;
+}
+.footer-down01{
+    line-height: 22px;
+}
+.dropdown{
+    width: 98px;
+    cursor: pointer;
+}
+.dropdown-title{
+    padding-left: 8px;
+    /*  圆角属性可设置4个值    这里只设置上面两脚*/
+    border-radius: 5px 5px 0 0;
+}
+.dropdown-list{;
+    width: 90px;
+    background-color: #474747;
+    position: absolute;
+    left: 0;
+    top: 22px;
+    padding-left: 8px;
+    border-radius: 0 0 5px 5px;
+    display: none;
+}
+/*  又箭头  没下拉列表   总有一个死  */
+.dropdown-hover .icon-arrow{
+    border-top-color: #ffffff;
+    transform: rotate(180deg);
+    right:1px;
+    top:5px;
+}
+.dropdown-hover .dropdown-list{
+    display: block;
+
+}
+.dropdown-hover .dropdown-title{
+    background-color: #474747;
+}
+
+
+
+/*  footer-down02  */
+
+.vertical-align-middle{
+    vertical-align: middle;
+    height: 41px;
+    width: auto;
+    padding-left: 5px;
+}
+.icon-gov{
+    padding-left: 10px;
+}
+
+/*  语言选择  */
+.language-title{
+    width: 102px;
+    height: 24px;
+    background-color: #474747;
+    /*  边框圆角属性  */
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    top: 51px;
+    line-height: 24px;
+    text-align: center;
+    /*  鼠标互动属性  */
+    cursor: pointer;
+}
+.icon-add{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-position: -463px -66px;
+}
+.language-list{
+    display: inline-block;
+    width: 102px;
+    height: 24px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    line-height: 24px;
+    text-align: center;
+    background-color: #474747;
+    /*  边框圆角属性  */
+    border-radius: 3px;
+    display: none;
+}
+.language-hover .language-list{
+    display: block;
+}
+.language-hover .icon-add{
+    background-position: -453px -66px;
+}
+
+
+
+/*  右侧盒子  */
+.fixed-box {
+    z-index: 11;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 58px;
+    height: 287px;
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    margin-top: -144px;
+}
+.fixed-box li{
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    height: 68px;
+}
+.fixed-box p{
+    font-size: 11px;
+    color: #000;
+}
+
+/*  右侧图标的公共样式  */
+.icon-fixed01,.icon-fixed02,.icon-fixed03
+{
+    background-image: url(../img/ui_service.png);
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+.icon-fixed01{
+    background-position: 0 0;
+}
+.icon-fixed02{
+    background-position: -30px 0;
+}
+.icon-fixed03{
+    background-position: -60px 0;
+}
+a:hover .icon-fixed01{
+    background-position: 0 -30px;
+}
+a:hover .icon-fixed02{
+    background-position: -30px -30px;
+}
+a:hover .icon-fixed03{
+    background-position: -60px -30px;
+}
+a:hover p{
+    color: #ef4222;
+}
+
+.fixed-qrcode-img{
+    width: 50px;
+    height: 50px;
+    margin-top: 9px;
+    margin-bottom: 4px;
+}

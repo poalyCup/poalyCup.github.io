@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>金立手机</title>
+    <!-- 图标 -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- 样式的层叠 -->
+    <!-- 格式样式 -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <!-- 基础样式 -->
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <!-- 首页样式 -->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        function effect(key) {
+            // 指示器 自己加类  ， 隔壁删类
+            $('.banner-key li').eq(key).addClass('current')
+            $('.banner-key li').eq(key).siblings().removeClass('current')
+            //图片随即变换
+            $('.banner-main li').eq(key).fadeIn()
+            $('.banner-main li').eq(key).siblings().fadeOut()
+        }
+        function startGoPic() {
+            $('.icon-arrow-right').click()
+        }
+
+        //    jq  入口
+        $(document).ready(function () {
+            //手机菜单动画
+            $('#muneBox').hide()
+            $('#phoneMune').mouseenter(function () {
+                $('#muneBox').show()
+            })
+            $('#phoneMune').mouseleave(function () {
+                $('#muneBox').hide()
+            })
+
+
+
+
+
+            //指示器移入鼠标动画
+            $('.banner-key li').mouseenter(function () {
+                //获取对应的标签index
+                var index = $(this).index()
+                effect(index)
+            });
+            //左右箭头点击换图
+            key=0
+            $('.icon-arrow-left').click(function () {
+                key--
+                if( key<0 ){ key=1 }
+                effect(key)
+            })
+            $('.icon-arrow-right').click(function () {
+                key++
+                if( key>1 ){ key=0 }
+                effect(key)
+            })
+            //自动播图
+            var speed = 3000
+            var timer = setInterval('startGoPic()',speed)
+            //鼠标移入停止播放
+            //有BUG
+            $('.banner').mouseenter(function () {
+                window.clearInterval(timer);
+            })
+            $('.banner').mouseleave(function () {
+                timer = setInterval('startGoPic()',speed)
+            })
+
+
+            //热卖推荐和精美配将鼠标移入动画
+            //热卖左侧长图
+            $('.hot-conten-left').mouseenter(function () {
+                $(this).addClass('hot-conten-left-hover')
+            })
+            $('.hot-conten-left').mouseleave(function () {
+                $(this).removeClass('hot-conten-left-hover')
+            })
+
+
+
+            //精美配件动画
+            $('.good-conten li').mouseenter(function () {
+                $(this).addClass('good-conten-onhover')
+            })
+            $('.good-conten li').mouseleave(function () {
+                $(this).removeClass('good-conten-onhover')
+            })
+
+
+
+            //页脚动画
+            //下属公司动画
+            $('.dropdown').mouseenter(function () {
+                $(this).addClass('dropdown-hover')
+            })
+            $('.dropdown').mouseleave(function () {
+                $(this).removeClass('dropdown-hover')
+            })
+
+
+          //  语言选择动画
+            $('.language').mouseenter(function () {
+                $(this).addClass('language-hover')
+            })
+            $('.language').mouseleave(function () {
+                $(this).removeClass('language-hover')
+            })
+        })
+    </script>
+</head>
+<body id="backTop">
+                                                <!--  公共页面部分  -->
+    <div class="header">
+        <!--头部-->
+        <div class="warp">   <!-- 版心限制 -->
+            <div class="logo"><!--logo--></div>
+            <div class="header-right">    <!-- 注册导航搜索集合 -->
+                <div class="header-login">    <!-- 注册 -->
+                    <a href="#" class="hot">amigo账号登录</a> |
+                    <a href="#">原账号登录</a> |
+                    <a href="#">注册</a>
+                    <a href="#"><span class="icon-cart"></span>购物车(<span class="hot">0</span>)</a>
+                </div>
+                <div class="nav-search">   <!-- 导航搜索集合 -->
+                        <!-- 导航 -->
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">首页</a></li>
+                            <li  id="phoneMune">
+                                <a href="#">手机</a>
+                                <div id="muneBox" class="mune-box">
+                                    <div class="warp">
+                                        <ul class="">
+                                            <li class="mune-title">最新 ></li>
+                                            <li><a>金立S11S</a><span class="hot-font">hot</span></li>
+                                            <li><a>金立S11</a><span class="hot-font">hot</span></li>
+                                            <li><a>金立M7 Plus</a><span class="hot-font">hot</span></li>
+                                            <li><a>金立M7</a><span class="hot-font">hot</span></li>
+                                            <li><a>大金钢2</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li class="mune-title">M系列 ></li>
+                                            <li><a>金立M7 Plus</a></li>
+                                            <li><a>金立M7</a></li>
+                                            <li><a>金立M6S Plus</a></li>
+                                            <li><a>金立M2017</a></li>
+                                            <li><a>金立M6 Plus</a></li>
+                                            <li><a>金立M6</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li class="mune-title">S系列 ></li>
+                                            <li><a>金立S11S</a></li>
+                                            <li><a>金立S11</a></li>
+                                            <li><a>金立S10</a></li>
+                                            <li><a>金立S10B</a></li>
+                                            <li><a>金立S10C</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li class="mune-title">金钢系列 ></li>
+                                            <li><a>金钢3</a><span class="hot-font">hot</span></li>
+                                            <li><a>金钢2</a></li>
+                                            <li><a>大金钢2</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li class="mune-title">天鉴系列 ></li>
+                                            <li><a>天鉴W909</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li class="mune-title">F系列 ></li>
+                                            <li><a>金立F6</a><span class="hot-font">hot</span></li>
+                                            <li><a>金立F109</a></li>
+                                            <li><a>金立F109L</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#">配件</a></li>
+                            <li><a href="#">服务</a></li>
+                            <li><a href="#">下载</a></li>
+                            <li><a href="#">社区</a></li>
+                            <li class="nomgr"><a href="#">amigoOS</a></li>
+                        </ul>
+                    </div>
+                    <div class="search">   <!-- 搜索 -->
+                        <input class="search-txt" type="text" placeholder="输入搜索内容" >
+                        <input class="search-sub" type="submit" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  轮播图  -->
+    <div class="banner position-relative">
+        <!--  跑马图  -->
+        <div class="banner-main">
+            <ul class="position-relative">
+                <li class="current"><a class="banner-main-img" style="background-image: url(img/04_1515047442501.jpg);" href="#"></a></li>
+                <li><a class="banner-main-img" style="background-image: url(img/02_1517536570441.jpg);" href="#"></a></li>
+            </ul>
+        </div>
+        <div class="banner-arrow">   <!--  左右箭头  -->
+            <img class="icon-arrow-left" src="img/left.png" alt="">
+            <img class="icon-arrow-right" src="img/right.png" alt="">
+        </div>
+        <div class="banner-key">    <!--  指示器模块  -->
+            <ul>
+                <li class="current"></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+                                                <!--  、、以上为公共排版、、 -->
+
+
+                                              <!--  首页核心内容  -->
+
+                                                <!--  明星产品  -->
+    <div class="star-product warp">
+        <div class="pro-title">明星产品</div>
+        <ul class="clearfloat">
+            <li><img src="img/28_1514454113062.jpg" alt=""></li>
+            <li><img src="img/19_1516348649876.jpg" alt=""></li>
+            <li class="nomgr"><img src="img/28_1514454181297.jpg" alt=""></li>
+        </ul>
+    </div>
+                                           <!--  热卖推荐 和 精美配件  -->
+    <div class="back-color-box">
+                                              <!--  热卖推荐  -->
+        <div class="hot-salse warp">
+            <div class="pro-title position-relative">热卖推荐
+                <span class="about-more"><a href="#">... 更多 ...</a></span>
+            </div>
+            <div class="hot-conten clearfloat position-relative">
+                <!--  热卖推荐左侧  -->
+                <div class="hot-conten-left"><a href=""><img src="img/29_1514541655531.jpg" alt=""></a></div>
+                <!--  热卖推荐右侧  -->
+                <div class="hot-conten-right">
+                    <ul class="clearfloat">
+                        <li><a href="#">
+                            <div class="pro-pic-box position-relative">
+                                <img class="after" src="img/28_1514451560910.png" alt="img02">
+                                <img class="before" src="img/28_1514451554121.png" alt="" >
+                            </div>
+                            <div class="pro-introduce">
+                                <h2>金立F6</h2>
+                                <p class="decs">5.7英寸高清全面屏</p>
+                                <p class="price"><span class="rmb">￥</span>1399</p>
+                            </div>
+                        </a></li>
+                        <li><a href="#"><img  src="img/28_1514451554121.png" alt="">
+                            <h2>S10C</h2>
+                            <p class="decs">1600万柔光自拍</p>
+                            <p class="price"><span class="rmb">￥</span>1399</p>
+                        </a></li>
+                        <li class="nomgr"><a href="#"><img  src="img/28_1514451554121.png" alt="">
+                            <h2>大金刚2</h2>
+                            <p class="decs">6.0英寸高清全面屏</p>
+                            <p class="price"><span class="rmb">￥</span>1799</p>
+                        </a></li>
+                        <li><a href="#"><img  src="img/28_1514451554121.png" alt="">
+                            <h2>金刚3</h2>
+                            <p class="decs">5.5英寸高清全面屏、4000mAh大电量</p>
+                            <p class="price"><span class="rmb">￥</span>1199</p>
+                        </a></li>
+                        <li><a href="#"><img  src="img/28_1514451554121.png" alt="">
+                            <h2>金立M6S Plus</h2>
+                            <p class="decs">6020mAh超级续航、骁龙八核处理器</p>
+                            <p class="price"><span class="rmb">￥</span>2599 起</p>
+                        </a></li>
+                        <li class="nomgr"><a href="#"><img  src="img/28_1514451554121.png" alt="">
+                        <h2>金立S9</h2>
+                        <p class="decs">双摄柔光自拍、5.5英寸1080P高清屏</p>
+                        <p class="price"><span class="rmb">￥</span>1699</p>
+                    </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+                                                    <!--  精美配件  -->
+        <div class="good-parts warp">
+            <div class="pro-title position-relative">精美配件
+                <span class="about-more"><a href="#">... 更多 ...</a></span>
+            </div>
+            <div class="good-conten">
+                <ul>
+                    <li class=""><a href="#"><img src="img/28_1514453044261.jpg" alt="">
+                        <div class="good-conten-txt">
+                            <h3>线控自拍杆</h3>
+                            <p class="decs">迷你携带，线控美拍</p>
+                            <p class="price"><span class="rmb">￥</span>49</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#"><img src="img/28_1514453089776.jpg" alt="">
+                        <div class="good-conten-txt">
+                            <h3>Micro USB数据线</h3>
+                            <p class="decs">高速数据传输</p>
+                            <p class="price"><span class="rmb">￥</span>20</p>
+                        </div>
+                    </a></li>
+                    <li class="nomgr"><a href="#"><img src="img/28_1514453140686.jpg" alt="">
+                        <div class="good-conten-txt">
+                            <h3>旅行充电器</h3>
+                            <p class="decs">流线腰身</p>
+                            <p class="price"><span class="rmb">￥</span>40</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#"><img src="img/28_1514453165062.jpg" alt="">
+                        <div class="good-conten-txt">
+                            <h3>快速充电器</h3>
+                            <p class="decs">高速快充，安全节能</p>
+                            <p class="price"><span class="rmb">￥</span>69</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#"><img src="img/28_1514453197940.jpg" alt="">
+                        <div class="good-conten-txt">
+                            <h3>HiFi耳机</h3>
+                            <p class="decs">HI-FI魔音，震撼享受</p>
+                            <p class="price"><span class="rmb">￥</span>69</p>
+                        </div>
+                    </a></li>
+                    <li class="nomgr"><a href="#"><img src="img/28_1514453223487.jpg" alt="">
+                        <div class="good-conten-txt">
+                            <h3>贴膜</h3>
+                            <p class="decs">高清透光，耐磨防油污</p>
+                            <p class="price"><span class="rmb">￥</span>10</p>
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+                                                <!--  品牌动态  -->
+     <div class="brand-dynamics warp">
+         <div class="pro-title">品牌动态</div>
+         <div class="brand-conten">
+             <img src="img/01_1517453309499.jpg" alt="">
+             <img src="img/01_1517453664732.jpg" alt="">
+             <img class="nomgr" src="img/01_1517453382045.jpg" alt="">
+         </div>
+     </div>
+
+
+                                           <!--  公共页面部分  -->
+    <div class="footer">
+        <div class="footer-up" >    <!--  页脚头部  -->
+            <ul class="warp">
+                <li><a href="#">
+                    <span class="footer-up-icon01"></span>
+                    <p>7天<br>退货保障</p>
+                </a></li>
+                <li><a href="#">
+                    <span class="footer-up-icon02"></span>
+                    <p>30天<br>换过承诺</p>
+                </a></li>
+                <li><a href="#">
+                    <span class="footer-up-icon03"></span>
+                    <p>99元<br>起全场免运费</p>
+                </a></li>
+                <li><a href="#">
+                    <span class="footer-up-icon04"></span>
+                    <p>579家<br>售后服务点</p>
+                </a></li>
+            </ul>
+        </div>
+        <div class="footer-center">    <!--  页脚中部  -->
+            <div class="warp position-relative">
+                <dl>
+                    <dt>关于金立</dt>
+                    <dd><a href="#">企业荣誉</a></dd>
+                    <dd><a href="#">金立体验店</a></dd>
+                    <dd><a href="#">代理商专区</a></dd>
+                    <dd><a href="#">加入金立</a></dd>
+                    <dd><a href="#">联系我们</a></dd>
+                </dl>
+                <dl>
+                    <dt>新闻资讯</dt>
+                    <dd><a href="#">公司新闻</a></dd>
+                    <dd><a href="#">媒体报道</a></dd>
+                    <dd><a href="#">金立月刊</a></dd>
+                </dl>
+                <dl>
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">支付方式</a></dd>
+                    <dd><a href="#">配送说明及费用</a></dd>
+                    <dd><a href="#">订单管理</a></dd>
+                    <dd><a href="#">购买常见问题</a></dd>
+                    <dd><a href="#">预置应用公示</a></dd>
+                </dl>
+                <dl>
+                    <dt>售后服务</dt>
+                    <dd><a href="#">售后政策</a></dd>
+                    <dd><a href="#">售后服务网点</a></dd>
+                    <dd><a href="#">上门维修</a></dd>
+                    <dd><a href="#">签收须知</a></dd>
+                    <dd><a href="#">物流查询</a></dd>
+                </dl>
+                <dl class="about-our">
+                    <dt>关于我们</dt>
+                    <dd><a href="#"><span class="icon-sinawibo"></span>新浪微博</a></dd>
+                    <dd><a href="#"><span class="icon-tencentwibo"></span>腾讯微博</a></dd>
+                    <dd><a href="#"><span class="icon-qzone"></span>QQ空间</a></dd>
+                </dl>
+                <div class="qrcode">
+                    <img class="qrcode-img" src="img/code.png" alt="">
+                    <p class="qrcode-txt">扫一扫关注微信</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-down">
+            <div class="warp position-relative">
+                <div class="footer-down01 clearfloat">
+                    <a class="float-left" href="#">网站地图 &nbsp;</a>
+                    <span class="float-left">| &nbsp;</span>
+                    <!--  存在下拉属性  -->
+                    <div class="dropdown float-left position-relative">
+                        <div class="dropdown-title">
+                            集团下属公司
+                            <span class="icon-arrow"></span>
+                        </div>
+                        <ul class="dropdown-list">
+                            <li><a href="#">欧新通信</a></li>
+                            <li><a href="#">奥软网络</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-down02">
+                    增值电信业务经营许可证：
+                    <a href="#">粤B2-20120350</a>
+                    <a href="#">粤ICP备05087105号</a>
+                    <a href="#">粤网文[2015]2233-484号</a>
+                    <a href="#">粤文市审[2012]196号</a>
+                    <img class="vertical-align-middle" src="img/sf.png" alt="">
+                    <img class="vertical-align-middle icon-gov" src="img/govIcon.gif" alt="">
+                    <img class="vertical-align-middle" src="img/b.png" alt="">
+                </div>
+                <div class="footer-down03">
+                    Copyright © 2013 深圳市金立通信设备有限公司 版权所有 .
+                </div>
+                        <!--  语言选择  -->
+                <div class="language">
+                    <ul>
+                        <li class="language-list"><a href="">Global/English</a></li>
+                    </ul>
+                    <div class="language-title">中国/简体中文 <span class="icon-add"></span></div>
+                </div>
+            </div>
+        </div>
+        <!--  右侧固定盒子 -->
+        <div class="fixed-box">
+            <ul>
+                <li><a href="#">
+                    <span class="icon-fixed01"></span>
+                    <p>在线服务</p>
+                </a></li>
+                <li><a href="#">
+                    <span class="icon-fixed02"></span>
+                    <p>帮助中心</p>
+                </a></li>
+                <li><a href="#backTop">
+                    <span class="icon-fixed03"></span>
+                    <p>返回顶部</p>
+                </a></li>
+                <li class="fixed-qrcode">
+                    <img class="fixed-qrcode-img" src="img/code.png" alt="">
+                    <p>金立关怀</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
