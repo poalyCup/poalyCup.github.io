@@ -56,10 +56,10 @@
 						<a :class="{'selected' : filterStatus === 'all' }" href="#/all" @click="changeStatus('all')">All</a>
 					</li>
 					<li>
-						<a href="#/active" @click="changeStatus('active')">Active</a>
+						<a :class="{'selected' : filterStatus === 'active' }" href="#/active" @click="changeStatus('active')">Active</a>
 					</li>
 					<li>
-						<a href="#/completed" @click="changeStatus('completed')">Completed</a>
+						<a :class="{'selected' : filterStatus === 'completed' }" href="#/completed" @click="changeStatus('completed')">Completed</a>
 					</li>
 				</ul>
 				<!-- Hidden if no completed items are left ↓ -->
