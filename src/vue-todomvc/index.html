@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Poaly's TodoMVC</title>
+		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<!-- CSS overrides - remove if you don't need it -->
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body>
+		<section class="todoapp">
+			<header class="header">
+				<h1>poaly's todos</h1>
+				<input class="new-todo" placeholder="What needs to be done?" 
+				autofocus @keyup.enter="addTodo" v-model="newTodo"> 
+			</header>
+			<!--  当 todoList 为空时，todos 主体隐藏   -->
+			<section class="main" v-show="todoList.length">
+				<!--   监听checkbox选中状态，改变全部tode的完成状态     -->
+				<input id="toggle-all" class="toggle-all" type="checkbox" @change="allDoneOrActive($event.target)">
+				<label for="toggle-all" >Mark all as complete</label>
+				<ul class="todo-list">
+					
+					<!-- 遍历todoList ，将其每一个todo的value展示在li中 -->
+					<!--   使用计算属性 showTodoS 返回的数组代替原始todoList -->
+					<li v-for="todo in showTodoS" :class="{completed : todo.completed}">
+						<div class="view">
+							<!-- 监听checkbox选中状态，改变单个todo的完成状态    @change="doneOrActive($event.target, todo.id)"-->
+							<input class="toggle" type="checkbox" v-model="todo.completed">
+							<label>{{ todo.value }}</label>
+							<button class="destroy" @click="destroyTodo(todo.id)"></button>
+						</div>
+						<input class="edit" value="Create a TodoMVC template">
+					</li>
+					<li>
+						<div class="view">
+							<input class="toggle" type="checkbox">
+							<label>Buy a unicorn</label>
+							<button class="destroy"></button>
+						</div>
+						<input class="edit" value="Rule the web">
+					</li>
+				</ul>
+			</section>
+			<!--  todoList 没有数据时 footer 也要隐藏  -->
+			<footer class="footer" v-show="todoList.length">
+				<!-- This should be `0 items left` by default -->
+				<!-- 统计 未完成 todo 的数量 -->
+				<!-- 加个显示复数的功能 -->
+				<span class="todo-count"><strong>{{ leftCounter }}</strong> item{{leftCounter === 1 || leftCounter === 0? '' : 's'}} left</span>
+				<!-- Remove this if you don't implement routing -->
+				<ul class="filters">
+					<li>
+						<a :class="{'selected' : filterStatus === 'all' }" href="#/all" @click="changeStatus('all')">All</a>
+					</li>
+					<li>
+						<a href="#/active" @click="changeStatus('active')">Active</a>
+					</li>
+					<li>
+						<a href="#/completed" @click="changeStatus('completed')">Completed</a>
+					</li>
+				</ul>
+				<!-- Hidden if no completed items are left ↓ -->
+				<!--   当总任务数大于未完成数时，存在完成todo ，则显示clear completed
+						否则隐藏   ,  点击清除已完成todo
+				-->
+				<button v-show="todoList.length > leftCounter" @click="removeCompletedTodo" class="clear-completed">Clear completed</button>
+			</footer>
+		</section>
+		<footer class="info">
+			<p>Double-click to edit a todo</p>
+			<!-- Remove the below line ↓ -->
+			<p>Template by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
+			<!-- Change this out with your name and url ↓ -->
+			<p>Created by <a href="http://todomvc.com">you</a></p>
+			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+		</footer>
+		<!-- Scripts here. Don't remove ↓ -->
+		<script src="js/vue.js"
+		<script src="node_modules/todomvc-common/base.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
