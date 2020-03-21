@@ -388,3 +388,12 @@ html .clear-completed:active {
 .hidden-main{
 	visibility: hidden;
 }
+
+.header::after{
+	content: 'demo';
+	font-size: 16px;
+	color: #b83f45ed;
+	position: absolute;
+	top: -86px;
+    right: 16px;
+   }
