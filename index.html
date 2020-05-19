@@ -5,16 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>poalyCup</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
 	</style>
 </head>
 <body>
     <div id="app">
-        <h2>Hello word</h2>
-        <h2><a href="./src/weijinsuo/index.html">实训项目--微金所</a></h2>
-        <h2><a href="./src/gionee phone/index.html">实训项目--金立手机官网首页</a></h2>
-        <h2><a href="./src/vue-todomvc/index.html">vue案例-todoMvc----未完成</a></h2>
+        <div class="dehiscence" :class="{open : isShow}" v-if="!showMain">
+            <div class="text">to be or not to be</div>
+            <div class="inner-text" @click="showAll">that's a question</div>
+            <div class="text">to be or not to be</div>
+        </div>
+        <!-- <button @click="show">{{changText}}</button> -->
+        <div class="main" v-if="showMain" :class="{show : main}">
+            <h2>Hello word</h2>
+            <h2><a href="./src/weijinsuo/index.html">实训项目--微金所</a></h2>
+            <h2><a href="./src/gionee phone/index.html">实训项目--金立手机官网首页</a></h2>
+            <h2><a href="./src/vue-todomvc/index.html">vue案例-todoMvc----未完成</a></h2>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data: {
+                isShow: false,
+                showMain: false,
+                main: false
+            },
+            methods: {
+                show(){
+                    this.isShow = !this.isShow
+                },
+                showAll(){
+                    console.log('asdf ')
+                    this.isShow = true
+                    setTimeout(()=>{
+                        this.showMain = true
+                    }, 500)
+                    setTimeout(()=>{
+                        this.main = true
+                    }, 800)
+                }
+            },
+            computed: {
+                changText(){
+                    return this.isShow ? '隐藏' : '显示'
+                }
+            }
+        })
+    </script>
 </body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body, html{
+        height: 100%;
+        width: 100%;
+    }
+    body{
+        background-color: lightpink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #app{
+        width: 100%;
+    }
+    .dehiscence{
+        width: 100%;
+        height: 120px;
+        text-align: center;
+        position: relative;
+        opacity: 1;
+        transition: .5s;
+    }
+
+    .dehiscence .text{
+        font-weight: bold;
+        font-family: 'Barlow', sans-serif;
+        font-size: 120px;
+        line-height: 120px;
+        height: 120px;
+        text-transform: uppercase;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        transition: .5s;
+    }
+    .dehiscence .text:nth-child(1){
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    }
+    .dehiscence .text:nth-child(3){
+        clip-path: polygon(0 49%, 100% 49%, 100% 100%, 0 100%);
+        /* top: -120px; */
+    }
+    .dehiscence .inner-text{
+        height: 0px;
+        overflow: hidden;
+        position: absolute;
+        transform: scale(1, 0);
+
+        top: 20px;
+        width: 100%;
+        font-size: 60px;
+        line-height: 70px;
+        transition: .5s;
+    }
+    .dehiscence:hover .text:nth-child(1){
+        top: -40px;
+    }
+    .dehiscence:hover .text:nth-child(3){
+        top: 40px;
+    }
+    .dehiscence:hover .inner-text{
+        height: 70px;
+        transform: scale(1, 1);
+    }
+
+    .open{
+        opacity: 0;
+    }
+
+    .main{
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transition: 1s;
+        position: relative;
+    }
+    .show{
+        opacity: 1;
+    }
+</style>
 </html>
