@@ -23,16 +23,17 @@
 				<label for="toggle-all" >Mark all as complete</label>
 				<ul class="todo-list">
 					
-					<!-- 遍历todoList ，将其每一个todo的value展示在li中 -->
-					<!--   使用计算属性 showTodoS 返回的数组代替原始todoList -->
-					<li v-for="todo in showTodoS" :class="{completed : todo.completed}">
+					<!-- 	遍历todoList ，将其每一个todo的value展示在li中 -->
+					<!--  使用计算属性 showTodoS 返回的数组代替原始todoList -->
+					<li v-for="(todo, index) in showTodoS" :key="index" :class="[todo.completed? 'completed': '', todo.editing? 'editing' : '']" 
+							@dblclick="openEdit(todo.value, index)" >
 						<div class="view">
 							<!-- 监听checkbox选中状态，改变单个todo的完成状态    @change="doneOrActive($event.target, todo.id)"-->
 							<input class="toggle" type="checkbox" v-model="todo.completed">
 							<label>{{ todo.value }}</label>
 							<button class="destroy" @click="destroyTodo(todo.id)"></button>
 						</div>
-						<input class="edit" value="Create a TodoMVC template">
+						<input class="edit" @blur="exitEdit(index)"  @keydown.enter="exitEdit(index)" v-model="editingText">
 					</li>
 					<li>
 						<div class="view">
@@ -40,7 +41,7 @@
 							<label>Buy a unicorn</label>
 							<button class="destroy"></button>
 						</div>
-						<input class="edit" value="Rule the web">
+						<input class="edit"  >
 					</li>
 				</ul>
 			</section>

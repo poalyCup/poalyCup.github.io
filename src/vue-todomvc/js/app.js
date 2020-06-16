@@ -8,11 +8,12 @@
 		el: '.todoapp',
 		data: {
 			todoList: [
-				{id: 1, value: 'aaa', completed: false},
-				{id: 2, value: 'bbb', completed: false}
+				{id: 1, value: 'aaa', completed: false, editing: false},
+				{id: 2, value: 'bbb', completed: false, editing: false}
 			],
 			newTodo: '',
-			filterStatus: 'all'
+			filterStatus: 'all',
+			editingText: ''
 		},
 		methods: {
 			//点击添加todo
@@ -23,12 +24,13 @@
 				if(this.todoList.length != 0){
 					id = this.todoList.length + 1
 				}
-				const aNewTode = {
+				const aNewTodo = {
 					id,
 					value,
-					completed: false
+					completed: false,
+					editing: false
 				}
-				this.todoList.push(aNewTode)
+				this.todoList.push(aNewTodo)
 				this.newTodo = ''
 			},
 			// 完成所有todo
@@ -37,7 +39,7 @@
 					this.todoList[len].completed = true
 				}
 			},
-			// completed 或 active 全部 todo
+			// 一键改变所有todo的状态
 			allDoneOrActive(event){
 				if(event.checked){
 					for(let len in this.todoList){
@@ -48,6 +50,23 @@
 						this.todoList[len].completed = false
 					}
 				}
+			},
+			// 双击事件开启编辑框,并将todo的内容赋值给editingText，文本框通过双向绑定editingText展示或修改内容
+			// 这里使用 this.nextTick 解决展示文本框后无法立即让他获得焦点
+			openEdit(value, index){
+				const liL = document.querySelectorAll('.todo-list li')[index]
+				const input = liL.querySelector('.edit')
+				this.$set(this.todoList[index], 'editing', true)
+				this.editingText = value
+				this.$nextTick(()=>{
+					input.focus()
+				})
+			},
+			//	失去焦点或者按下回车，关闭编辑框，并保存修改后的todo内容
+			exitEdit(index){
+				this.$set(this.todoList[index], 'value', this.editingText)
+				this.$set(this.todoList[index], 'editing', false)
+
 			},
 			// 删除被选中的那个todo
 			destroyTodo(id){
