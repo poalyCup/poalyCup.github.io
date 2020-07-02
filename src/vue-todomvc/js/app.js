@@ -2,21 +2,28 @@
 	//ES6的模块自动采用严格模式
 	'use strict';
 	
+	const todoStorage = {
+		fetch: function () {
+      //如果本地储存中还没有todoList 就parse一个空数组
+      return JSON.parse(localStorage.getItem(STORAGE_KYE) || '[]');
+    },
+    save: function (todoList) {
+      localStorage.setItem(STORAGE_KYE, JSON.stringify(todoList));
+    }
+	}
 
 	// Your starting point. Enjoy the ride!
 	new Vue({
-		el: '.todoapp',
+		el: '.todo-app',
 		data: {
-			todoList: [
-				{id: 1, value: 'aaa', completed: false, editing: false},
-				{id: 2, value: 'bbb', completed: false, editing: false}
-			],
+			todoList: todoStorage.fetch,
 			newTodo: '',
 			filterStatus: 'all',
 			editingText: ''
 		},
 		methods: {
 			//点击添加todo
+			//同时将todoList添加到localStorage种
 			addTodo(){
 				const value = this.newTodo && this.newTodo.trim()
 				if(!value) return
@@ -31,6 +38,7 @@
 					editing: false
 				}
 				this.todoList.push(aNewTodo)
+				todoStorage.save(this.todoList)
 				this.newTodo = ''
 			},
 			// 完成所有todo
